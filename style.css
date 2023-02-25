@@ -4,6 +4,7 @@ body {
     --calc-width: 700px;
     --button-width: 100px;
     --button-height: 100px;
+    background-color: darkgray;
 }
 
 button {
