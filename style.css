@@ -1,0 +1,102 @@
+body {
+    margin-top: 50px;
+    --num-display-height: 80px;
+    --calc-width: 700px;
+    --button-width: 100px;
+    --button-height: 100px;
+}
+
+button {
+    width: var(--button-width);
+    height: var(--button-height);
+    cursor: pointer;
+}
+
+table {
+    /* justify-content: center;
+    align-items: center;
+    transform: translateX(50%); */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 1s;
+}
+
+.title, .display {
+    text-align: center;
+    padding-bottom: 2rem;
+    /* padding-top: 2rem; */
+    font-size: xx-large;
+    font-weight: 1000;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    cursor: default;
+}
+
+.numbtn {
+    border: 3px;
+    border-radius: 20px;
+    background-color: rgb(163, 163, 163);
+    color: white;
+    font-weight: 800;
+    font-size: xx-large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    transition: all 0.2s;
+}
+
+.opbtn, .resbtn {
+    border: transparent 0px;
+    border-radius: 20px;
+    background-color: rgb(219, 219, 219);
+    color: rgb(0, 0, 0);
+    font-weight: 1000;
+    font-size: xx-large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    transition: all 0.2s;
+}
+
+th {
+    padding: 3px;
+}
+
+.numbtn:hover, .opbtn:hover, .resbtn:hover {
+    box-shadow: 0.1rem 0.2rem 0.4rem rgba(0, 0, 0, 0.7);
+    background-color: gray;
+    color: lightgray;
+}
+
+.button {
+    border: solid 4px;
+    border-color: gray;
+    border-radius: 15px;
+    width: var(--calc-width);
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0rem 0.5rem 0.7rem rgba(0, 0, 0, 0.5);
+    background-color: rgb(236, 236, 236);
+}
+
+.display {
+    border: solid 4px;
+    border-color: gray;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: var(--calc-width);
+    height: var(--num-display-height);
+    border-radius: 15px;
+    box-shadow: 0rem 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
+    background-color: rgb(236, 236, 236);
+}
+
+#num-display {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    line-height: var(--num-display-height);
+}
