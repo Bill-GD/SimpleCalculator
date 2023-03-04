@@ -17,25 +17,31 @@ for (let x of Object.getOwnPropertyNames(opButton))
         if (numDisplay.innerHTML.length < maxDisplayLength - 2) {
             switch (x) {
                 case 'mul':
-                    numDisplay.innerHTML += " * ";
+                    numDisplay.innerHTML += "*";
                     break;
                 case 'sqr':
-                    numDisplay.innerHTML += ' ** 2';
+                    numDisplay.innerHTML += '<sup>2</sup>';
                     break;
                 case 'pow':
-                    numDisplay.innerHTML += ' ** ';
+                    numDisplay.innerHTML += '**';
                     break;
                 case 'sqrt':
-                    numDisplay.innerHTML = `\u221A` + numDisplay.innerHTML;
+                    numDisplay.innerHTML += `\u221A`;
                     break;
                 case 'mod':
-                    numDisplay.innerHTML += ' % ';
+                    numDisplay.innerHTML += '%';
                     break;
                 case 'backspace':
                     numDisplay.innerHTML = numDisplay.innerHTML.substring(0, numDisplay.innerHTML.length - 1);
                     break;
+                case 'open':
+                    numDisplay.innerHTML += '(';
+                    break;
+                case 'close':
+                    numDisplay.innerHTML += ') ';
+                    break;
                 default:
-                    numDisplay.innerHTML += ' ' + opButton[x].innerHTML + ' ';
+                    numDisplay.innerHTML += opButton[x].innerHTML;
                     break;
             }
         }
@@ -48,7 +54,10 @@ clearButton.addEventListener("click", () => {
 
 const resultButton = document.getElementById('equal');
 resultButton.addEventListener('click', () => {
-    numDisplay.innerHTML = eval((numDisplay.innerHTML.includes(`\u221A`) ? 'Math.sqrt(' + numDisplay.innerHTML.replace(`\u221A`, '') + ')' : numDisplay.innerHTML));
+    let outputString = numDisplay.innerHTML;
+    outputString = (numDisplay.innerHTML.includes(`\u221A`) ? numDisplay.innerHTML.replace(`\u221A`, 'Math.sqrt') : numDisplay.innerHTML);
+    outputString = (numDisplay.innerHTML.includes('<sup>') ? numDisplay.innerHTML.replace(`<sup>`, '**').replace('</sup>', '') : numDisplay.innerHTML);
+    numDisplay.innerHTML = eval(outputString);
 });
 
 // document.querySelector('.title').innerHTML += '<button> Added p element </button>';
