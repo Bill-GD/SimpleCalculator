@@ -1,21 +1,18 @@
+// Display
 const numDisplay = document.getElementById('num-display');
-let maxDisplayLength = Math.floor(parseInt(getComputedStyle(document.querySelector('body')).getPropertyValue('--calc-width')) / 22);
 
-const numButton = {};
-for (let e of document.getElementsByClassName('numbtn')) numButton[e.id] = e;
-console.log(numButton);
-for (let x of Object.getOwnPropertyNames(numButton))
-    numButton[x].addEventListener("click", () => {
-        if (numDisplay.innerHTML.length < maxDisplayLength) numDisplay.innerHTML += numButton[x].innerHTML;
+// All the number buttons
+for (let x of document.getElementsByClassName('numbtn'))
+    x.addEventListener("click", () => {
+        if (numDisplay.innerHTML.length < Math.floor(parseInt(getComputedStyle(document.querySelector('body')).getPropertyValue('--calc-width')) / 22))
+            numDisplay.innerHTML += x.innerHTML;
     });
 
-const opButton = {};
-for (let e of document.getElementsByClassName('opbtn')) opButton[e.id] = e;
-console.log(opButton)
-for (let x of Object.getOwnPropertyNames(opButton))
-    opButton[x].addEventListener("click", () => {
+// All the operation buttons
+for (let x of document.getElementsByClassName('opbtn'))
+    x.addEventListener("click", () => {
         if (numDisplay.innerHTML.length < maxDisplayLength - 2) {
-            switch (x) {
+            switch (x.id) {
                 case 'mul':
                     numDisplay.innerHTML += "*";
                     break;
@@ -38,26 +35,24 @@ for (let x of Object.getOwnPropertyNames(opButton))
                     numDisplay.innerHTML += '(';
                     break;
                 case 'close':
-                    numDisplay.innerHTML += ') ';
+                    numDisplay.innerHTML += ')';
                     break;
                 default:
-                    numDisplay.innerHTML += opButton[x].innerHTML;
+                    numDisplay.innerHTML += x.innerHTML;
                     break;
             }
         }
     });
 
-const clearButton = document.getElementById('clear');
-clearButton.addEventListener("click", () => {
+// Clear button
+document.getElementById('clear').addEventListener("click", () => {
     numDisplay.innerHTML = '';
 });
 
-const resultButton = document.getElementById('equal');
-resultButton.addEventListener('click', () => {
+// Compute result
+document.getElementById('equal').addEventListener('click', () => {
     let outputString = numDisplay.innerHTML;
     outputString = (numDisplay.innerHTML.includes(`\u221A`) ? numDisplay.innerHTML.replace(`\u221A`, 'Math.sqrt') : numDisplay.innerHTML);
     outputString = (numDisplay.innerHTML.includes('<sup>') ? numDisplay.innerHTML.replace(`<sup>`, '**').replace('</sup>', '') : numDisplay.innerHTML);
     numDisplay.innerHTML = eval(outputString);
 });
-
-// document.querySelector('.title').innerHTML += '<button> Added p element </button>';
