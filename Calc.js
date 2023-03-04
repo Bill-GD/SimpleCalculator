@@ -11,7 +11,7 @@ for (let x of document.getElementsByClassName('numbtn'))
 // All the operation buttons
 for (let x of document.getElementsByClassName('opbtn'))
     x.addEventListener("click", () => {
-        if (numDisplay.innerHTML.length < maxDisplayLength - 2) {
+        if (numDisplay.innerHTML.length < Math.floor(parseInt(getComputedStyle(document.querySelector('body')).getPropertyValue('--calc-width')) / 22) - 2) {
             switch (x.id) {
                 case 'mul':
                     numDisplay.innerHTML += "*";
