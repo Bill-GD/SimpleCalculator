@@ -1,3 +1,7 @@
+/* Currently inextensible
+ * Need more knowledge :(
+ */
+
 /* Variable & Main body */
 body {
     margin-top: 50px;
@@ -8,6 +12,8 @@ body {
     --btn-text: rgba(255, 37, 37);
     --btn-bg: rgb(255, 236, 236);
     --border-color: rgb(255, 0, 0);
+    --shadow: 0rem 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
+    --translateY-up-small: translateY(-5px);
     background-color: rgba(255, 180, 180, 0.5);
 }
 
@@ -22,16 +28,20 @@ body {
     cursor: default;
 }
 
-.display, .button {
+.display, .buttons {
     border: solid 4px;
     border-color: var(--border-color);
     border-radius: 15px;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 0rem 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
+    box-shadow: var(--shadow);
     background-color: var(--btn-bg);
     width: var(--calc-width);
+}
 
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .display {
@@ -52,15 +62,20 @@ body {
 }
 
 /* Main Calculator Scetion */
-table {
-    margin: 20px 20px;
-    margin-left: auto;
-    margin-right: auto;
-    transition: all 1s;
+.wrapper {
+    display: grid;
+    gap: 10px;
+    margin: 20px;
+    margin-right: 0px;
 }
 
-th {
-    padding: 3px;
+.numberWrapper1 {
+    grid-template-columns: repeat(3, 0fr);
+    grid-template-rows: minmax(100px, auto);
+}
+.numberWrapper2 {
+    grid-template-columns: repeat(2, 0fr);
+    grid-template-rows: minmax(100px, auto);
 }
 
 button {
@@ -92,7 +107,8 @@ button {
 }
 
 .numbtn:hover, .opbtn:hover, .resbtn:hover {
-    box-shadow: 0.1rem 0.2rem 0.4rem rgba(0, 0, 0, 0.7);
+    box-shadow: var(--shadow);
+    transform: var(--translateY-up-small);
 }
 
 .numbtn:hover {
