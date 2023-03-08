@@ -20,10 +20,10 @@ for (let x of document.getElementsByClassName('opbtn'))
                     numDisplay.innerHTML += '<sup>2</sup>';
                     break;
                 case 'pow':
-                    numDisplay.innerHTML += '**';
+                    numDisplay.innerHTML += `**`;
                     break;
                 case 'sqrt':
-                    numDisplay.innerHTML += `\u221A`;
+                    numDisplay.innerHTML += `\u221A` + "(";
                     break;
                 case 'mod':
                     numDisplay.innerHTML += '%';
@@ -52,7 +52,11 @@ document.getElementById('clear').addEventListener("click", () => {
 // Compute result
 document.getElementById('equal').addEventListener('click', () => {
     let outputString = numDisplay.innerHTML;
-    outputString = (numDisplay.innerHTML.includes(`\u221A`) ? numDisplay.innerHTML.replace(`\u221A`, 'Math.sqrt') : numDisplay.innerHTML);
-    outputString = (numDisplay.innerHTML.includes('<sup>') ? numDisplay.innerHTML.replace(`<sup>`, '**').replace('</sup>', '') : numDisplay.innerHTML);
+
+    outputString = (outputString.includes(`\u221A`) ? outputString.replace(/\u221A/g, 'Math.sqrt') : outputString);
+    outputString = (outputString.includes('<sup>') ? outputString.replace(/<sup>/g, '**').replace('</sup>', '') : outputString);
+
+    console.log(outputString);
+
     numDisplay.innerHTML = eval(outputString);
 });

@@ -2,7 +2,7 @@
 body {
     margin-top: 50px;
     --num-display-height: 100px;
-    --calc-width: 900px;
+    --calc-width: 600px;
     --button-width: 100px;
     --button-height: 100px;
     --btn-text: rgba(255, 37, 37);
@@ -53,8 +53,7 @@ body {
 
 /* Main Calculator Scetion */
 table {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 20px 20px;
     margin-left: auto;
     margin-right: auto;
     transition: all 1s;
