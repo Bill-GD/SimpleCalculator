@@ -60,3 +60,6 @@ document.getElementById('equal').addEventListener('click', () => {
 
     numDisplay.innerHTML = eval(outputString);
 });
+
+if (navigator.serviceWorker)
+    navigator.serviceWorker.register('/sw.js');
