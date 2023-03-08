@@ -6,7 +6,7 @@ A _simple_ calculator with **very** basic functions.
 
 ## Quick access
 
-##### (If you can't find out where ¯\\_(ツ)\\_/¯)
+##### (If you can't find out where ¯\_(ツ)\_/¯)
 
 [Simple Calculator](https://bill-gd.github.io/SimpleCalculator.github.io/)
 
