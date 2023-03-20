@@ -8,7 +8,7 @@ A _simple_ calculator with **very** basic functions.
 
 ##### (If you can't find out where)
 
-[Simple Calculator](https://bill-gd.github.io/SimpleCalculator.github.io/)
+[Simple Calculator](https://bill-gd.github.io/SimpleCalculator/)
 
 ## Features
 
