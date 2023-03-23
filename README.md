@@ -1,5 +1,8 @@
 # SimpleCalculator
 
+## Commits
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/Bill-GD/SimpleCalculator?style=plastic)
+
 ## Short Description
 
 A _simple_ calculator with **very** basic functions.
